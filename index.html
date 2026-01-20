@@ -882,7 +882,11 @@
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.classList.remove('active');
         });
-        event.target.classList.add('active');
+        function filterSites(category, el) {
+    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+    el.classList.add('active');
+    ...
+};
         
         if (category === 'all') {
             displaySites();
