@@ -882,18 +882,21 @@
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.classList.remove('active');
         });
+        
+        
         function filterSites(category, el) {
     document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-    el.classList.add('active');
-    ...
-};
-        
-        if (category === 'all') {
-            displaySites();
-        } else {
-            const filtered = websites.filter(site => site.category === category);
-            displaySites(filtered);
-        }
+    if (el) el.classList.add('active');
+
+    if (category === 'all') {
+        displaySites();
+    } else {
+        displaySites(websites.filter(site => site.category === category));
+    }
+
+    document.getElementById('sitesContainer')
+        .scrollIntoView({ behavior: 'smooth' });
+}
         
         // Scroll to sites
         document.getElementById('sitesContainer').scrollIntoView({ 
