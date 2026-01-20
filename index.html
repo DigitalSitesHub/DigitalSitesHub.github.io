@@ -946,9 +946,10 @@
         }
     }
     
-    // Show page modal
-    function showPage(page) {
-        event.preventDefault();
+    // Show page modalfunction 
+
+    function showPage(page, e) {
+    if (e) e.preventDefault();
         const modal = document.getElementById('pageModal');
         const content = document.getElementById('modalContent');
         
