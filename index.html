@@ -10,17 +10,6 @@
     <meta name="keywords" content="اسلامی ویب سائٹس, فری گیمز, آن لائن ٹولز, اردو بلاگز, تعلیمی ویب سائٹس, DigitalSitesHub">
     <meta name="author" content="ید اللہ ڈیجیٹل ہب">
     <meta name="robots" content="index, follow">
-    <meta name="google-site-verification" content="your-verification-code">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="ڈیجیٹل سائٹس ہب - تمام مفید ویب سائٹس ایک جگہ">
-    <meta property="og:description" content="اسلامی مواد، گیمز، تعلیم، ٹولز اور بلاگز - سب کچھ فری!">
-    <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ڈیجیٹل سائٹس ہب">
     
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486"></script>    
@@ -567,8 +556,9 @@
 <body>
 
 <!-- Theme Toggle Button -->
-<button class="nav-btn active" onclick="filterSites('all', this)">
-<button class="nav-btn" onclick="filterSites('islamic', this)">
+<button class="theme-toggle" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i>
+</button>
 
 <!-- Header -->
 <header class="header">
@@ -592,22 +582,22 @@
 
 <!-- Navigation -->
 <nav class="main-nav">
-    <button class="nav-btn active" onclick="filterSites('all')">
+    <button class="nav-btn active" onclick="filterSites('all', this)">
         <i class="fas fa-th"></i> تمام ویب سائٹس
     </button>
-    <button class="nav-btn" onclick="filterSites('islamic')">
+    <button class="nav-btn" onclick="filterSites('islamic', this)">
         <i class="fas fa-mosque"></i> اسلامی
     </button>
-    <button class="nav-btn" onclick="filterSites('games')">
+    <button class="nav-btn" onclick="filterSites('games', this)">
         <i class="fas fa-gamepad"></i> گیمز
     </button>
-    <button class="nav-btn" onclick="filterSites('education')">
+    <button class="nav-btn" onclick="filterSites('education', this)">
         <i class="fas fa-graduation-cap"></i> تعلیم
     </button>
-    <button class="nav-btn" onclick="filterSites('tools')">
+    <button class="nav-btn" onclick="filterSites('tools', this)">
         <i class="fas fa-tools"></i> ٹولز
     </button>
-    <button class="nav-btn" onclick="filterSites('blog')">
+    <button class="nav-btn" onclick="filterSites('blog', this)">
         <i class="fas fa-blog"></i> بلاگ
     </button>
 </nav>
@@ -655,22 +645,6 @@
         </script>
     </div>
     
-    <!-- Google AdSense Ad 3 -->
-    <div class="ad-unit">
-        <div class="ad-label">📢 اشتہار</div>
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1417987183063486"
-             data-ad-slot="2402391265"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-    
-    
-    
 </div>
 
 <!-- Footer -->
@@ -705,22 +679,22 @@
         <div class="footer-section">
             <h3>🔗 تیز لنکس</h3>
             <ul class="footer-links">
-                <li><a href="#" onclick="showPage('privacy')"><i class="fas fa-shield-alt"></i> پرائیویسی پالیسی</a></li>
-                <li><a href="#" onclick="showPage('terms')"><i class="fas fa-file-contract"></i> شرائط و ضوابط</a></li>
-                <li><a href="#" onclick="showPage('disclaimer')"><i class="fas fa-exclamation-triangle"></i> ڈسکلیمر</a></li>
-                <li><a href="#" onclick="showPage('about')"><i class="fas fa-info-circle"></i> ہمارے بارے میں</a></li>
-                <li><a href="#" onclick="showPage('contact')"><i class="fas fa-headset"></i> رابطہ کریں</a></li>
+                <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> پرائیویسی پالیسی</a></li>
+                <li><a href="terms.html"><i class="fas fa-file-contract"></i> شرائط و ضوابط</a></li>
+                <li><a href="disclaimer.html"><i class="fas fa-exclamation-triangle"></i> ڈسکلیمر</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> ہمارے بارے میں</a></li>
+                <li><a href="contact.html"><i class="fas fa-headset"></i> رابطہ کریں</a></li>
             </ul>
         </div>
         
         <div class="footer-section">
             <h3>📊 کیٹیگریز</h3>
             <ul class="footer-links">
-                <li><a href="#" onclick="filterSites('islamic')"><i class="fas fa-mosque"></i> اسلامی ویب سائٹس</a></li>
-                <li><a href="#" onclick="filterSites('games')"><i class="fas fa-gamepad"></i> گیمز پلیٹ فارم</a></li>
-                <li><a href="#" onclick="filterSites('education')"><i class="fas fa-graduation-cap"></i> تعلیمی مواد</a></li>
-                <li><a href="#" onclick="filterSites('tools')"><i class="fas fa-tools"></i> آن لائن ٹولز</a></li>
-                <li><a href="#" onclick="filterSites('blog')"><i class="fas fa-blog"></i> اردو بلاگز</a></li>
+                <li><a href="#" onclick="filterSites('islamic', this)"><i class="fas fa-mosque"></i> اسلامی ویب سائٹس</a></li>
+                <li><a href="#" onclick="filterSites('games', this)"><i class="fas fa-gamepad"></i> گیمز پلیٹ فارم</a></li>
+                <li><a href="#" onclick="filterSites('education', this)"><i class="fas fa-graduation-cap"></i> تعلیمی مواد</a></li>
+                <li><a href="#" onclick="filterSites('tools', this)"><i class="fas fa-tools"></i> آن لائن ٹولز</a></li>
+                <li><a href="#" onclick="filterSites('blog', this)"><i class="fas fa-blog"></i> اردو بلاگز</a></li>
             </ul>
         </div>
     </div>
@@ -732,11 +706,6 @@
         </p>
     </div>
 </footer>
-
-<!-- Page Content Modal (Hidden by default) -->
-<div id="pageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; align-items:center; justify-content:center;">
-    <div id="modalContent" style="background:white; max-width:800px; width:90%; max-height:80vh; overflow-y:auto; padding:40px; border-radius:20px; position:relative;"></div>
-</div>
 
 <!-- JavaScript -->
 <script>
@@ -876,28 +845,20 @@
     }
     
     // Filter sites
-    function filterSites(category) {
-        // Update active button
+    function filterSites(category, el) {
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.classList.remove('active');
         });
         
+        if (el) el.classList.add('active');
         
-        function filterSites(category, el) {
-    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-    if (el) el.classList.add('active');
-
-    if (category === 'all') {
-        displaySites();
-    } else {
-        displaySites(websites.filter(site => site.category === category));
-    }
-
-    document.getElementById('sitesContainer')
-        .scrollIntoView({ behavior: 'smooth' });
-}
+        if (category === 'all') {
+            displaySites();
+        } else {
+            const filtered = websites.filter(site => site.category === category);
+            displaySites(filtered);
+        }
         
-        // Scroll to sites
         document.getElementById('sitesContainer').scrollIntoView({ 
             behavior: 'smooth',
             block: 'start'
@@ -946,48 +907,6 @@
         }
     }
     
-    // Show page modalfunction 
-
-    function showPage(page, e) {
-    if (e) e.preventDefault();
-        const modal = document.getElementById('pageModal');
-        const content = document.getElementById('modalContent');
-        
-        const pages = {
-            'privacy': `
-                <h2 style="color:var(--primary); margin-bottom:25px;">🔒 پرائیویسی پالیسی</h2>
-                <p>آپ کی پرائیویسی ہمارے لیے اہم ہے۔ یہ پرائیویسی پالیسی...</p>
-                <button onclick="closeModal()" style="margin-top:30px; padding:12px 30px; background:var(--primary); color:white; border:none; border-radius:10px; cursor:pointer;">
-                    بند کریں
-                </button>
-            `,
-            'terms': `
-                <h2 style="color:var(--primary); margin-bottom:25px;">📜 شرائط و ضوابط</h2>
-                <p>اس ویب سائٹ کا استعمال مندرجہ ذیل شرائط کے تحت ہے...</p>
-                <button onclick="closeModal()" style="margin-top:30px; padding:12px 30px; background:var(--primary); color:white; border:none; border-radius:10px; cursor:pointer;">
-                    بند کریں
-                </button>
-            `,
-            'contact': `
-                <h2 style="color:var(--primary); margin-bottom:25px;">📞 رابطہ کریں</h2>
-                <p>ید اللہ ڈیجیٹل ہب سے رابطہ کرنے کے لیے:</p>
-                <p>📧 ای میل: ullahyad199@gmail.com</p>
-                <p>📱 فون: 03125540048</p>
-                <button onclick="closeModal()" style="margin-top:30px; padding:12px 30px; background:var(--primary); color:white; border:none; border-radius:10px; cursor:pointer;">
-                    بند کریں
-                </button>
-            `
-        };
-        
-        content.innerHTML = pages[page] || '<p>صفحہ نہیں ملا</p>';
-        modal.style.display = 'flex';
-    }
-    
-    // Close modal
-    function closeModal() {
-        document.getElementById('pageModal').style.display = 'none';
-    }
-    
     // Load saved data
     function loadSavedData() {
         const saved = localStorage.getItem('digitalSitesData');
@@ -1014,17 +933,12 @@
         
         // Focus search
         document.getElementById('searchInput').focus();
-        
-        // Close modal on background click
-        document.getElementById('pageModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
     };
     
     // Save data periodically
     setInterval(() => {
         localStorage.setItem('digitalSitesData', JSON.stringify(websites));
-    }, 300000); // Every 5 minutes
+    }, 300000);
 </script>
 
 </body>
