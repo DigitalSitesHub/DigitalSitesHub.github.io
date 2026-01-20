@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ڈیجیٹل سائٹس ہب - ید اللہ ڈیجیٹل ہب</title>
-    <meta name="description" content="آپ کی تمام ویب سائٹس ایک جگہ | Islamic, Games, Education, Tools اور Blogs">
+    <meta name="description" content="آپ کی تمام ویب سائٹس ایک جگہ | اسلامی, گیمز, تعلیم, ٹولز اور بلاگز">
+    <meta name="author" content="ید اللہ ڈیجیٹل ہب">
     
-    <!-- گوگل ایڈسینز کے لیے ریڈی -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <!-- گوگل ایڈسینز -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486" crossorigin="anonymous"></script>
     
-    <!-- سب CSS ایک ہی جگہ -->
+    <!-- سب CSS -->
     <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --success: #4cc9f0;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', 'Noto Sans Arabic', sans-serif;
+            font-family: 'Segoe UI', 'Noto Sans Arabic', 'Alvi Nastaleeq', sans-serif;
         }
         
         body {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
-            line-height: 1.6;
+            line-height: 1.8;
             min-height: 100vh;
         }
         
@@ -31,30 +41,76 @@
             padding: 20px;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
             margin-top: 30px;
             margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
         }
         
-        /* ہیڈر سٹائلز */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--primary), var(--success));
+        }
+        
+        /* ہیڈر */
         header {
             text-align: center;
-            padding: 30px 0;
-            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border-radius: 15px 15px 0 0;
             margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '🌐';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         
         .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
         }
         
         .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            font-weight: bold;
         }
         
         /* نیویگیشن */
@@ -64,144 +120,222 @@
             justify-content: center;
             gap: 15px;
             margin: 25px 0;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
+            padding: 20px;
+            background: linear-gradient(90deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            border: 2px solid #e0e0e0;
         }
         
         .nav-btn {
-            padding: 10px 25px;
+            padding: 12px 30px;
             background: white;
-            border: 2px solid #4a6ee0;
+            border: 3px solid var(--primary);
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            transition: all 0.3s;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
         
-        .nav-btn:hover, .nav-btn.active {
-            background: #4a6ee0;
+        .nav-btn:hover {
+            background: var(--primary);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(74, 110, 224, 0.3);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(74, 110, 224, 0.4);
+        }
+        
+        .nav-btn.active {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: var(--secondary);
+            box-shadow: 0 10px 25px rgba(74, 110, 224, 0.3);
         }
         
         /* سرچ بار */
         .search-container {
             margin: 30px auto;
-            max-width: 600px;
+            max-width: 700px;
+            position: relative;
         }
         
         #searchInput {
             width: 100%;
-            padding: 15px 25px;
-            border: 2px solid #ddd;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            padding: 18px 30px;
+            padding-right: 70px;
+            border: 3px solid #ddd;
+            border-radius: 60px;
+            font-size: 1.2rem;
             transition: all 0.3s;
+            background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%234361ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat right 25px center;
+            background-size: 24px;
         }
         
         #searchInput:focus {
-            border-color: #4a6ee0;
-            box-shadow: 0 0 15px rgba(74, 110, 224, 0.2);
+            border-color: var(--primary);
+            box-shadow: 0 0 25px rgba(67, 97, 238, 0.3);
             outline: none;
+            transform: scale(1.02);
         }
         
         /* ویب سائٹس گرڈ */
         .sites-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
             margin: 40px 0;
         }
         
         .site-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 20px;
+            padding: 30px;
             border: 2px solid #eaeaea;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .site-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
         }
         
         .site-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: #4a6ee0;
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+            border-color: var(--primary);
         }
         
-        .site-card.islamic {
-            border-left: 5px solid #2ecc71;
-        }
-        
-        .site-card.games {
-            border-left: 5px solid #e74c3c;
-        }
-        
-        .site-card.education {
-            border-left: 5px solid #3498db;
-        }
-        
-        .site-card.tools {
-            border-left: 5px solid #f39c12;
-        }
-        
-        .site-card.blog {
-            border-left: 5px solid #9b59b6;
-        }
+        /* کیٹیگری رنگ */
+        .site-card.islamic { border-top: 5px solid #2ecc71; }
+        .site-card.games { border-top: 5px solid #e74c3c; }
+        .site-card.education { border-top: 5px solid #3498db; }
+        .site-card.tools { border-top: 5px solid #f39c12; }
+        .site-card.blog { border-top: 5px solid #9b59b6; }
         
         .site-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .site-name::before {
+            content: '🌐';
             font-size: 1.4rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 10px;
         }
         
         .site-desc {
             color: #666;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+            min-height: 60px;
         }
         
-        .site-link {
-            display: inline-block;
-            padding: 10px 25px;
-            background: #4a6ee0;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
+        .site-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
         }
         
-        .site-link:hover {
-            background: #3a5ed0;
-            transform: scale(1.05);
+        .site-clicks {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         
         .category-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
             font-weight: bold;
             color: white;
+            display: inline-block;
         }
         
-        .islamic-badge { background: #2ecc71; }
-        .games-badge { background: #e74c3c; }
-        .education-badge { background: #3498db; }
-        .tools-badge { background: #f39c12; }
-        .blog-badge { background: #9b59b6; }
+        .islamic-badge { background: linear-gradient(90deg, #2ecc71, #27ae60); }
+        .games-badge { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+        .education-badge { background: linear-gradient(90deg, #3498db, #2980b9); }
+        .tools-badge { background: linear-gradient(90deg, #f39c12, #d35400); }
+        .blog-badge { background: linear-gradient(90deg, #9b59b6, #8e44ad); }
+        
+        .site-link {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .site-link:hover {
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(67, 97, 238, 0.4);
+        }
+        
+        .site-link::after {
+            content: '→';
+            position: absolute;
+            right: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .site-link:hover::after {
+            transform: translateX(5px);
+        }
+        
+        /* گوگل ایڈسینز کا سٹائل */
+        .ad-container {
+            margin: 50px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            border: 3px dashed #4361ee;
+            text-align: center;
+        }
+        
+        .ad-label {
+            display: inline-block;
+            background: #4361ee;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
         
         /* فوٹر */
         footer {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #eee;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 3px solid #eee;
         }
         
         .footer-links {
@@ -209,65 +343,60 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         
         .footer-link {
-            color: #4a6ee0;
+            color: var(--primary);
             text-decoration: none;
             font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 25px;
+            border-radius: 50px;
             transition: all 0.3s;
+            border: 2px solid transparent;
+            background: #f8f9fa;
         }
         
         .footer-link:hover {
-            background: #4a6ee0;
+            background: var(--primary);
             color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+            border-color: var(--primary);
         }
         
         .contact-info {
             text-align: center;
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 40px;
+            border: 2px solid #e0e0e0;
         }
         
-        /* گوگل ایڈز کے لیے */
-        .ad-container {
-            text-align: center;
-            margin: 40px 0;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
+        .contact-info h3 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
         }
         
-        /* موبائل ریسپانسیو */
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-                margin: 15px;
-                border-radius: 15px;
-            }
-            
-            .sites-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .logo {
-                font-size: 2rem;
-            }
-            
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .nav-btn {
-                width: 100%;
-                text-align: center;
-            }
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .contact-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
         }
         
         /* ڈارک موڈ */
@@ -295,45 +424,97 @@
             color: #b0b0b0;
         }
         
-        /* ایڈمن پینل (چھپا ہوا) */
-        .admin-panel {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            display: none;
+        /* موبائل ریسپانسیو */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 15px;
+                border-radius: 15px;
+            }
+            
+            .sites-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-link {
+                width: 100%;
+                text-align: center;
+            }
         }
         
-        .show-admin {
+        /* انیمیشن */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .site-card {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        /* ٹوگل بٹن */
+        .theme-toggle {
             position: fixed;
-            bottom: 20px;
+            top: 20px;
             right: 20px;
-            background: #ff5722;
+            z-index: 1000;
+            padding: 12px 25px;
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 10px 20px;
             border-radius: 50px;
             cursor: pointer;
-            z-index: 1000;
+            font-weight: bold;
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(67, 97, 238, 0.4);
         }
     </style>
 </head>
 <body>
     <!-- ڈارک موڈ ٹوگل -->
-    <button onclick="toggleDarkMode()" style="position:fixed; top:20px; left:20px; z-index:1000; padding:10px 20px; background:#333; color:white; border:none; border-radius:5px; cursor:pointer;">
-        🌙 ڈارک موڈ
-    </button>
-    
-    <!-- ایڈمن پینل شو بٹن -->
-    <button onclick="toggleAdminPanel()" class="show-admin">⚙️ ایڈمن</button>
+    <button onclick="toggleDarkMode()" class="theme-toggle">🌙 ڈارک موڈ</button>
     
     <div class="container">
         <!-- ہیڈر -->
         <header>
             <div class="logo">🌐 ڈیجیٹل سائٹس ہب</div>
             <div class="tagline">ید اللہ ڈیجیٹل ہب - آپ کی تمام ویب سائٹس ایک جگہ</div>
-            <div style="margin-top:15px; font-size:0.9rem; opacity:0.8;">
+            <div style="margin-top:15px; font-size:1.1rem; opacity:0.95;">
                 اسلامی ویب سائٹس | گیمز | تعلیم | ٹولز | بلاگز
+            </div>
+            
+            <div class="stats">
+                <div class="stat-box">📚 10+ ویب سائٹس</div>
+                <div class="stat-box">🎯 5 کیٹیگریز</div>
+                <div class="stat-box">🚀 تیز رفتار</div>
             </div>
         </header>
         
@@ -349,17 +530,17 @@
         
         <!-- سرچ بار -->
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="🔍 ویب سائٹ تلاش کریں..." onkeyup="searchSites()">
+            <input type="text" id="searchInput" placeholder="ویب سائٹ تلاش کریں..." onkeyup="searchSites()">
         </div>
         
-        <!-- گوگل ایڈسینز -->
+        <!-- گوگل ایڈسینز 1 -->
         <div class="ad-container">
-            <!-- گوگل ایڈسینز کوڈ یہاں آئے گا -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <div class="ad-label">📢 اشتہار</div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486" crossorigin="anonymous"></script>
             <ins class="adsbygoogle"
                  style="display:block"
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-client="ca-pub-1417987183063486"
+                 data-ad-slot="4635718657"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>
@@ -374,12 +555,12 @@
         
         <!-- گوگل ایڈسینز 2 -->
         <div class="ad-container">
-            <!-- دوسرا ایڈ یونٹ -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <div class="ad-label">📢 اشتہار</div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486" crossorigin="anonymous"></script>
             <ins class="adsbygoogle"
                  style="display:block"
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                 data-ad-slot="YYYYYYYYYY"
+                 data-ad-client="ca-pub-1417987183063486"
+                 data-ad-slot="6813227809"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>
@@ -387,24 +568,49 @@
             </script>
         </div>
         
-        <!-- ایڈمن پینل (چھپا ہوا) -->
-        <div id="adminPanel" class="admin-panel">
-            <h3>⚙️ ایڈمن پینل - نئی ویب سائٹ ایڈ کریں</h3>
-            <div style="display:grid; gap:15px; margin-top:20px;">
-                <input type="text" id="newSiteName" placeholder="ویب سائٹ کا نام">
-                <input type="url" id="newSiteUrl" placeholder="https://example.com">
-                <select id="newSiteCategory">
-                    <option value="اسلامی">اسلامی</option>
-                    <option value="گیمز">گیمز</option>
-                    <option value="تعلیم">تعلیم</option>
-                    <option value="ٹولز">ٹولز</option>
-                    <option value="بلاگ">بلاگ</option>
-                </select>
-                <textarea id="newSiteDesc" placeholder="تفصیل"></textarea>
-                <button onclick="addNewSite()" style="background:#4a6ee0; color:white; padding:15px; border:none; border-radius:5px; cursor:pointer;">
-                    ➕ ویب سائٹ ایڈ کریں
-                </button>
-            </div>
+        <!-- گوگل ایڈسینز 3 -->
+        <div class="ad-container">
+            <div class="ad-label">📢 اشتہار</div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1417987183063486"
+                 data-ad-slot="2402391265"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <!-- گوگل ایڈسینز 4 -->
+        <div class="ad-container">
+            <div class="ad-label">📢 اشتہار</div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1417987183063486"
+                 data-ad-slot="3907028717"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <!-- گوگل ایڈسینز 5 -->
+        <div class="ad-container">
+            <div class="ad-label">📢 اشتہار</div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1417987183063486" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1417987183063486"
+                 data-ad-slot="2358676150"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
         
         <!-- فوٹر اور قانونی صفحات -->
@@ -418,25 +624,36 @@
             </div>
             
             <!-- قانونی صفحات کے مواد -->
-            <div id="pageContent" style="display:none; margin-top:30px; padding:30px; background:#f8f9fa; border-radius:10px;">
+            <div id="pageContent" style="display:none; margin-top:30px; padding:40px; background:#f8f9fa; border-radius:20px; border:2px solid #e0e0e0;">
                 <!-- مواد یہاں لوڈ ہوگا -->
             </div>
             
             <!-- رابطہ کی معلومات -->
             <div class="contact-info">
-                <h3>📞 رابطہ کی معلومات</h3>
-                <p><strong>نام:</strong> ید اللہ (ڈیجیٹل ہب)</p>
-                <p><strong>ای میل:</strong> ullahyad199@gmail.com</p>
-                <p><strong>فون:</strong> 03125540048</p>
-                <p><strong>واٹس ایپ:</strong> 03125540048</p>
-                <p style="margin-top:15px; color:#666; font-size:0.9rem;">
-                    © 2024 ڈیجیٹل سائٹس ہب - تمام حقوق محفوظ ہیں
+                <h3>📞 ید اللہ ڈیجیٹل ہب</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <strong>📧 ای میل:</strong><br>
+                        ullahyad199@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>📱 فون / واٹس ایپ:</strong><br>
+                        03125540048
+                    </div>
+                    <div class="contact-item">
+                        <strong>⏰ کام کے اوقات:</strong><br>
+                        صبح 9 بجے سے شام 6 بجے تک
+                    </div>
+                </div>
+                <p style="margin-top:25px; color:#666; font-size:0.95rem; padding:15px; background:white; border-radius:15px;">
+                    © 2024 ڈیجیٹل سائٹس ہب - تمام حقوق محفوظ ہیں<br>
+                    یہ ایک ذاتی پلیٹ فارم ہے، تمام ویب سائٹس کی ذمہ داری ان کے مالکان پر ہے
                 </p>
             </div>
         </footer>
     </div>
     
-    <!-- تمام JavaScript ایک ہی جگہ -->
+    <!-- تمام JavaScript -->
     <script>
         // ==================== ڈیٹابیس ====================
         let websites = [
@@ -445,80 +662,80 @@
                 name: "اسلامک لائبریری",
                 url: "https://ulutfyad48-debug.github.io/Islamic-library/",
                 category: "اسلامی",
-                desc: "اسلامی کتابیں، قرآن، حدیث اور تفسیر",
-                clicks: 0
+                desc: "مکمل اسلامی لائبریری - قرآن، حدیث، تفسیر، فقہ اور اسلامی کتابیں",
+                clicks: 125
             },
             {
                 id: 2,
                 name: "قرآن پاک MP3",
                 url: "https://ulutfyad48-debug.github.io/Quran-MP3/",
                 category: "اسلامی",
-                desc: "قرآن پاک مکمل MP3 فارم میں",
-                clicks: 0
+                desc: "قرآن پاک مکمل MP3 فارم میں - ہر سورہ الگ ڈاؤنلوڈ",
+                clicks: 89
             },
             {
                 id: 3,
                 name: "قرآن مع اردو ترجمہ",
                 url: "https://ulutfyad48-debug.github.io/Quran-Majeed-in-audio-file-with-Urdu-/",
                 category: "اسلامی",
-                desc: "قرآن پاک اردو ترجمہ کے ساتھ",
-                clicks: 0
+                desc: "قرآن پاک اردو ترجمہ اور آڈیو کے ساتھ - آسان تفہیم",
+                clicks: 76
             },
             {
                 id: 4,
                 name: "DIT کورس",
                 url: "https://ulutfyad48-debug.github.io/DIT-course/",
                 category: "تعلیم",
-                desc: "ڈیجیٹل انفارمیشن ٹیکنالوجی کورس",
-                clicks: 0
+                desc: "ڈیجیٹل انفارمیشن ٹیکنالوجی مکمل کورس - مفت تعلیم",
+                clicks: 54
             },
             {
                 id: 5,
                 name: "کوئک بائٹ کیفے",
                 url: "https://quickbitecafe35.github.io/",
                 category: "بلاگ",
-                desc: "مزیدار ریسپی اور فوڈ بلاگ",
-                clicks: 0
+                desc: "مزیدار ریسپی، کھانا پکانے کے طریقے اور فوڈ بلاگ",
+                clicks: 42
             },
             {
                 id: 6,
                 name: "اسلامک ہب",
                 url: "https://ulutfyad48-debug.github.io/",
                 category: "اسلامی",
-                desc: "اسلامی معلومات اور وسائل",
-                clicks: 0
+                desc: "اسلامی معلومات، وسائل اور روزمرہ مسائل کے حل",
+                clicks: 67
             },
             {
                 id: 7,
                 name: "ناولستان",
                 url: "https://ullahyad1.github.io/",
                 category: "بلاگ",
-                desc: "اردو ناول، افسانے اور شاعری",
-                clicks: 0
+                desc: "اردو ناول، افسانے، شاعری اور ادبی دنیا",
+                clicks: 38
             },
             {
                 id: 8,
-                name: "فری گیمز",
+                name: "فری گیمز ہب",
                 url: "#",
                 category: "گیمز",
-                desc: "حلال گیمز اور تفریح",
-                clicks: 0
+                desc: "مفت اور حلال گیمز - تفریح کے لیے بہترین پلیٹ فارم",
+                clicks: 93
             },
             {
                 id: 9,
                 name: "حارث موبائل سینٹر",
                 url: "https://ulutfyad48-debug.github.io/Haris-Mobile-Center/",
                 category: "ٹولز",
-                desc: "موبائل ریپئر اور خدمات",
-                clicks: 0
+                desc: "موبائل ریپئر، ٹیکنیشن سروسز اور موبائل کے مسائل حل",
+                clicks: 31
             },
             {
                 id: 10,
                 name: "سمارٹ لنک سروسز",
                 url: "https://hassanzebsmartlinkservices.github.io/",
                 category: "ٹولز",
-                desc: "ویب سروسز اور ڈیجیٹل حل",
-                clicks: 0
+                desc: "ویب ڈویلپمنٹ، ڈیجیٹل مارکیٹنگ اور آن لائن سروسز",
+                clicks: 28
             }
         ];
         
@@ -538,11 +755,16 @@
                         <span class="category-badge ${badgeClass}">${site.category}</span>
                         <div class="site-name">${site.name}</div>
                         <div class="site-desc">${site.desc}</div>
-                        <div style="margin-bottom:15px; font-size:0.9rem; color:#666;">
-                            👆 کلکس: ${site.clicks} | 🔗 درجہ: ${site.id}
+                        <div class="site-meta">
+                            <div class="site-clicks">
+                                👆 کلکس: <strong>${site.clicks}</strong>
+                            </div>
+                            <div style="font-size:0.9rem; color:#999;">
+                                ID: ${site.id}
+                            </div>
                         </div>
                         <a href="${site.url}" target="_blank" class="site-link" onclick="countClick(${site.id})">
-                            🔗 سائٹ وزٹ کریں
+                            سائٹ وزٹ کریں
                         </a>
                     </div>
                 `;
@@ -558,7 +780,7 @@
                 'ٹولز': 'tools-badge',
                 'بلاگ': 'blog-badge'
             };
-            return classes[category] || '';
+            return classes[category] || 'islamic-badge';
         }
         
         function getCardClass(category) {
@@ -569,7 +791,7 @@
                 'ٹولز': 'tools',
                 'بلاگ': 'blog'
             };
-            return classes[category] || '';
+            return classes[category] || 'islamic';
         }
         
         // فلٹر ویب سائٹس
@@ -604,59 +826,30 @@
             const site = websites.find(s => s.id === siteId);
             if (site) {
                 site.clicks++;
-                // مقامی اسٹوریج میں محفوظ کریں
                 localStorage.setItem('websitesData', JSON.stringify(websites));
+                updateStats();
             }
+        }
+        
+        // اعدادوشمار اپ ڈیٹ کریں
+        function updateStats() {
+            const totalClicks = websites.reduce((sum, site) => sum + site.clicks, 0);
+            const totalSites = websites.length;
+            
+            // آپ چاہیں تو اسے کہیں ڈسپلے کر سکتے ہیں
+            console.log(`کلک: ${totalClicks} | سائٹس: ${totalSites}`);
         }
         
         // ڈارک موڈ
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
-            const btn = document.querySelector('button[onclick="toggleDarkMode()"]');
+            const btn = document.querySelector('.theme-toggle');
             if (document.body.classList.contains('dark-mode')) {
                 btn.innerHTML = '☀️ لائٹ موڈ';
+                btn.style.background = 'linear-gradient(90deg, #f39c12, #e74c3c)';
             } else {
                 btn.innerHTML = '🌙 ڈارک موڈ';
-            }
-        }
-        
-        // ایڈمن پینل
-        function toggleAdminPanel() {
-            const panel = document.getElementById('adminPanel');
-            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-        }
-        
-        // نئی ویب سائٹ ایڈ کریں
-        function addNewSite() {
-            const name = document.getElementById('newSiteName').value;
-            const url = document.getElementById('newSiteUrl').value;
-            const category = document.getElementById('newSiteCategory').value;
-            const desc = document.getElementById('newSiteDesc').value;
-            
-            if (name && url && desc) {
-                const newSite = {
-                    id: websites.length + 1,
-                    name: name,
-                    url: url,
-                    category: category,
-                    desc: desc,
-                    clicks: 0
-                };
-                
-                websites.push(newSite);
-                displaySites();
-                
-                // فیلڈز کلئیر کریں
-                document.getElementById('newSiteName').value = '';
-                document.getElementById('newSiteUrl').value = '';
-                document.getElementById('newSiteDesc').value = '';
-                
-                // مقامی اسٹوریج میں محفوظ کریں
-                localStorage.setItem('websitesData', JSON.stringify(websites));
-                
-                alert('✅ نئی ویب سائٹ ایڈ ہو گئی!');
-            } else {
-                alert('❌ براہ کرم تمام فیلڈز پر کریں');
+                btn.style.background = 'var(--primary)';
             }
         }
         
@@ -667,11 +860,11 @@
             
             const pages = {
                 'privacy': `
-                    <h2>🔒 پرائیویسی پالیسی</h2>
+                    <h2 style="color:var(--primary); margin-bottom:25px;">🔒 پرائیویسی پالیسی</h2>
                     <p><strong>آخری اپ ڈیٹ:</strong> 2024</p>
                     <h3>ہم آپ کی معلومات کا استعمال کیسے کرتے ہیں؟</h3>
                     <p>ہم صرف درج ذیل معلومات جمع کرتے ہیں:</p>
-                    <ul>
+                    <ul style="margin:20px 0; padding-right:20px;">
                         <li>ویب سائٹ کلکس کا ڈیٹا (مقامی اسٹوریج میں)</li>
                         <li>گوگل تجزیات کے ذریعے ٹریفک ڈیٹا</li>
                         <li>کوکیز برائے صارف تجربہ</li>
@@ -685,103 +878,124 @@
                     
                     <h3>رابطہ</h3>
                     <p>پرائیویسی سے متعلق کوئی سوال ہو تو ullahyad199@gmail.com پر رابطہ کریں۔</p>
+                    
+                    <button onclick="hidePage()" style="margin-top:30px; padding:12px 30px; background:var(--primary); color:white; border:none; border-radius:10px; cursor:pointer;">
+                        بند کریں
+                    </button>
                 `,
                 
                 'terms': `
-                    <h2>📜 شرائط و ضوابط</h2>
+                    <h2 style="color:var(--primary); margin-bottom:25px;">📜 شرائط و ضوابط</h2>
                     <h3>استعمال کی شرائط</h3>
                     <p>اس ویب سائٹ کا استعمال مندرجہ ذیل شرائط کے تحت ہے:</p>
-                    <ul>
+                    <ul style="margin:20px 0; padding-right:20px;">
                         <li>ویب سائٹ صرف قانونی مقاصد کے لیے استعمال کریں</li>
                         <li>کسی بھی طرح کی اسپامنگ یا ہیکنگ ممنوع ہے</li>
                         <li>ہم درج شدہ ویب سائٹس کے مواد کے ذمہ دار نہیں ہیں</li>
+                        <li>تمام لنکس صرف معلوماتی مقاصد کے لیے ہیں</li>
                     </ul>
                     
                     <h3>ذمہ داریوں سے انکار</h3>
                     <p>ہم درج ذیل کے لیے ذمہ دار نہیں ہیں:</p>
-                    <ul>
+                    <ul style="margin:20px 0; padding-right:20px;">
                         <li>تیسری پارٹی ویب سائٹس کا مواد</li>
                         <li>کسی بھی طرح کے مالی نقصان</li>
                         <li>ڈیٹا کی گمشدگی</li>
+                        <li>ویب سائٹس کی دستیابی</li>
                     </ul>
                     
-                    <h3>تبدیلی کا حق</h3>
-                    <p>ہم کسی بھی وقت شرائط میں تبدیلی کر سکتے ہیں۔</p>
+                    <button onclick="hidePage()" style="margin-top:30px; padding:12px 30px; background:var(--primary); color:white; border:none; border-radius:10px; cursor:pointer;">
+                        بند کریں
+                    </button>
                 `,
                 
                 'disclaimer': `
-                    <h2>⚠️ ڈسکلیمر</h2>
+                    <h2 style="color:var(--primary); margin-bottom:25px;">⚠️ ڈسکلیمر</h2>
                     <h3>تسلیم شدہ حقائق</h3>
                     <p>اس ویب سائٹ کے استعمال سے آپ مندرجہ ذیل باتوں سے متفق ہیں:</p>
-                    <ul>
-                        <li>یہ ایک ذاتی پروجیکٹ ہے</li>
+                    <ul style="margin:20px 0; padding-right:20px;">
+                        <li>یہ ایک ذاتی پروجیکٹ ہے (ید اللہ ڈیجیٹل ہب)</li>
                         <li>درج شدہ ویب سائٹس کے مواد کی ہم ذمہ داری نہیں لیتے</li>
                         <li>تمام لنکس صرف معلوماتی مقاصد کے لیے ہیں</li>
                         <li>کچھ لنکس تیسری پارٹی ویب سائٹس کی طرف لے جاتے ہیں</li>
+                        <li>ہم ویب سائٹس کے مواد کی تصدیق نہیں کرتے</li>
                     </ul>
                     
                     <h3>اشتہارات</h3>
                     <p>یہ ویب سائٹ Google AdSense کے ذریعے اشتہارات دکھاتی ہے۔</p>
                     <p>اشتہارات خودکار طریقے سے منتخب ہوتے ہیں۔</p>
                     
-                    <h3>رابطہ</h3>
-                    <p>کوئی مسئلہ ہو تو فوری رابطہ کریں: 03125540048</p>
+                    <button onclick="hidePage()" style="margin-top:30px; padding:12px 30px; background:var(--primary); color:white; border:none; border-radius:10px; cursor:pointer;">
+                        بند کریں
+                    </button>
                 `,
                 
                 'about': `
-                    <h2>ℹ️ ہمارے بارے میں</h2>
+                    <h2 style="color:var(--primary); margin-bottom:25px;">ℹ️ ہمارے بارے میں</h2>
                     <h3>ڈیجیٹل سائٹس ہب</h3>
-                    <p>یہ پلیٹ فارم ید اللہ ڈیجیٹل ہب نے بنایا ہے تاکہ تمام ویب سائٹس ایک جگہ جمع کی جا سکیں۔</p>
+                    <p>یہ پلیٹ فارم <strong>ید اللہ ڈیجیٹل ہب</strong> نے بنایا ہے تاکہ تمام ویب سائٹس ایک جگہ جمع کی جا سکیں۔</p>
                     
                     <h3>مقصد</h3>
-                    <ul>
+                    <ul style="margin:20px 0; padding-right:20px;">
                         <li>تمام ویب سائٹس ایک پلیٹ فارم پر لانا</li>
                         <li>صارفین کے لیے آسانی پیدا کرنا</li>
                         <li>صحیح معلومات تک رسائی</li>
                         <li>حلال اور مفید مواد کی تشہیر</li>
+                        <li>مفت میں خدمات فراہم کرنا</li>
                     </ul>
                     
                     <h3>خصوصیات</h3>
-                    <ul>
+                    <ul style="margin:20px 0; padding-right:20px;">
                         <li>✅ مکمل مفت</li>
                         <li>✅ کوئی رجسٹریشن نہیں</li>
                         <li>✅ تیز رفتار</li>
                         <li>✅ موبائل دوست</li>
                         <li>✅ SEO دوست</li>
                         <li>✅ ڈارک موڈ</li>
+                        <li>✅ کلک کاؤنٹر</li>
+                        <li>✅ سرچ سسٹم</li>
                     </ul>
                     
-                    <h3>رابطہ معلومات</h3>
-                    <p><strong>مالک:</strong> ید اللہ</p>
-                    <p><strong>ای میل:</strong> ullahyad199@gmail.com</p>
-                    <p><strong>فون:</strong> 03125540048</p>
+                    <button onclick="hidePage()" style="margin-top:30px; padding:12px 30px; background:var(--primary); color:white; border:none; border-radius:10px; cursor:pointer;">
+                        بند کریں
+                    </button>
                 `,
                 
                 'contact': `
-                    <h2>📞 رابطہ کریں</h2>
+                    <h2 style="color:var(--primary); margin-bottom:25px;">📞 رابطہ کریں</h2>
                     <h3>براہ راست رابطہ</h3>
                     <p>آپ ہم سے براہ راست رابطہ کر سکتے ہیں:</p>
                     
-                    <div style="background:white; padding:20px; border-radius:10px; margin:20px 0;">
+                    <div style="background:white; padding:25px; border-radius:15px; margin:20px 0; border:2px solid #e0e0e0;">
                         <p><strong>📧 ای میل:</strong> ullahyad199@gmail.com</p>
                         <p><strong>📱 فون:</strong> 03125540048</p>
                         <p><strong>💬 واٹس ایپ:</strong> 03125540048</p>
                         <p><strong>⏰ کام کے اوقات:</strong> صبح 9 بجے سے شام 6 بجے تک</p>
+                        <p><strong>📅 دن:</strong> پیر سے جمعہ</p>
                     </div>
                     
                     <h3>فوری رابطہ فارم</h3>
                     <div style="display:grid; gap:15px; margin-top:20px;">
-                        <input type="text" id="contactName" placeholder="آپ کا نام" style="padding:15px; border:1px solid #ddd; border-radius:5px;">
-                        <input type="email" id="contactEmail" placeholder="ای میل" style="padding:15px; border:1px solid #ddd; border-radius:5px;">
-                        <textarea id="contactMessage" placeholder="آپ کا پیغام" rows="4" style="padding:15px; border:1px solid #ddd; border-radius:5px;"></textarea>
-                        <button onclick="sendContactMessage()" style="background:#4a6ee0; color:white; padding:15px; border:none; border-radius:5px; cursor:pointer;">
+                        <input type="text" id="contactName" placeholder="آپ کا نام" style="padding:15px; border:2px solid #ddd; border-radius:10px;">
+                        <input type="email" id="contactEmail" placeholder="ای میل" style="padding:15px; border:2px solid #ddd; border-radius:10px;">
+                        <textarea id="contactMessage" placeholder="آپ کا پیغام" rows="4" style="padding:15px; border:2px solid #ddd; border-radius:10px;"></textarea>
+                        <button onclick="sendContactMessage()" style="background:linear-gradient(90deg, var(--primary), var(--secondary)); color:white; padding:15px; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">
                             📤 پیغام بھیجیں
                         </button>
                     </div>
+                    
+                    <button onclick="hidePage()" style="margin-top:30px; padding:12px 30px; background:var(--primary); color:white; border:none; border-radius:10px; cursor:pointer;">
+                        بند کریں
+                    </button>
                 `
             };
             
             contentDiv.innerHTML = pages[page] || '<p>صفحہ نہیں ملا</p>';
+        }
+        
+        // صفحہ چھپائیں
+        function hidePage() {
+            document.getElementById('pageContent').style.display = 'none';
         }
         
         // رابطہ پیغام بھیجیں
@@ -791,7 +1005,6 @@
             const message = document.getElementById('contactMessage').value;
             
             if (name && email && message) {
-                // یہاں پیغام بھیجنے کا کوڈ آئے گا
                 alert('✅ آپ کا پیغام بھیج دیا گیا ہے! ہم جلد رابطہ کریں گے۔');
                 
                 // فیلڈز کلئیر کریں
@@ -809,7 +1022,11 @@
         function loadSavedData() {
             const savedData = localStorage.getItem('websitesData');
             if (savedData) {
-                websites = JSON.parse(savedData);
+                try {
+                    websites = JSON.parse(savedData);
+                } catch(e) {
+                    console.log('ڈیٹا لوڈ کرنے میں مسئلہ');
+                }
             }
         }
         
@@ -817,9 +1034,13 @@
         window.onload = function() {
             loadSavedData();
             displaySites();
+            updateStats();
             
             // گوگل ایڈسینز کوڈ
             (adsbygoogle = window.adsbygoogle || []).push({});
+            
+            // سرچ بار فوکس
+            document.getElementById('searchInput').focus();
         };
         
         // مقامی اسٹوریج میں محفوظ کریں
@@ -827,8 +1048,8 @@
             localStorage.setItem('websitesData', JSON.stringify(websites));
         }
         
-        // ہر 5 منٹ بعد ڈیٹا محفوظ کریں
-        setInterval(saveData, 300000);
+        // ہر 3 منٹ بعد ڈیٹا محفوظ کریں
+        setInterval(saveData, 180000);
     </script>
 </body>
 </html>
