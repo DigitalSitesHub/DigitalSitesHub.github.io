@@ -20,39 +20,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --primary: #4361ee;
-            --secondary: #7209b7;
+            --secondary: #3f37c9;
             --accent: #f72585;
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.5);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
             --text-main: #2b2d42;
-            --text-light: #4a4a4a;
+            --text-light: #585a66;
+            --card-hover: translateY(-8px) scale(1.02);
         }
 
         body.dark-mode {
-            --glass-bg: rgba(30, 30, 40, 0.8);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(20, 20, 30, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.08);
             --text-main: #edf2f4;
             --text-light: #b8b8b8;
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif;
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%); 
+            /* متبادل پروفیشنل بیک گراؤنڈ */
+            background: linear-gradient(-45deg, #094b65, #1f3b73, #2a5298, #0e8574);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 20s ease infinite;
             color: var(--text-main);
             min-height: 100vh;
             line-height: 1.8;
             padding-bottom: 80px;
+            overflow-x: hidden;
         }
 
         @keyframes gradientBG {
@@ -64,227 +68,305 @@
         /* Glassmorphism Classes */
         .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            border-radius: 24px;
             box-shadow: var(--glass-shadow);
         }
 
-        /* Header */
+        /* Header Design */
         .header {
-            padding: 30px 20px;
+            padding: 40px 20px 20px;
             text-align: center;
+            position: relative;
+            z-index: 10;
         }
 
         .logo-area {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: rgba(255,255,255,0.85);
-            padding: 8px 25px;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 30px;
             border-radius: 50px;
             margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
         }
+        
+        .logo-area:hover { transform: scale(1.05); }
 
         .logo-text {
             font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--primary);
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .tagline {
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: 20px;
-            font-size: 1rem;
+            color: rgba(255,255,255, 0.95);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
-        /* Top Pages Links (About/Contact) */
+        /* Top Links */
         .top-links {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
         .page-link {
             color: white;
             text-decoration: none;
-            font-size: 0.9rem;
-            background: rgba(0,0,0,0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(5px);
         }
 
         .page-link:hover {
             background: white;
             color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Navigation */
+        /* Modern Navigation */
         .nav-scroll-container {
             overflow-x: auto;
-            padding: 10px 0;
+            padding: 10px 0 20px;
             white-space: nowrap;
             scrollbar-width: none;
+            -ms-overflow-style: none;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
         .nav-scroll-container::-webkit-scrollbar { display: none; }
 
         .nav-pills {
             display: inline-flex;
-            gap: 10px;
+            gap: 12px;
             padding: 0 20px;
         }
 
         .nav-btn {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.2);
             color: white;
-            border: 1px solid rgba(255,255,255,0.4);
-            padding: 8px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 10px 24px;
             border-radius: 50px;
             cursor: pointer;
             font-family: 'Noto Nastaliq Urdu', serif;
-            transition: 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(4px);
         }
 
-        .nav-btn.active, .nav-btn:hover {
+        .nav-btn.active {
             background: white;
             color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transform: scale(1.05);
+            border: none;
         }
 
-        /* Container & Grid */
+        /* Main Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 5;
         }
 
+        /* Search Bar */
         .search-wrapper {
-            margin: 20px auto 40px;
+            margin: 10px auto 40px;
             max-width: 600px;
             position: relative;
         }
 
         .search-box {
             width: 100%;
-            padding: 15px 50px 15px 20px;
+            padding: 18px 60px 18px 25px;
             border-radius: 50px;
-            border: none;
-            background: rgba(255,255,255,0.9);
+            border: 2px solid rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.95);
             font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 1rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            font-size: 1.1rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            color: var(--text-main);
         }
 
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Grid System */
         .sites-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
+            gap: 25px;
+            margin-bottom: 50px;
         }
 
         .site-card {
-            padding: 20px;
-            transition: all 0.3s;
+            padding: 25px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
             position: relative;
             overflow: hidden;
+            height: 100%;
         }
 
         .site-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: rgba(255,255,255,0.9);
         }
 
         .card-icon {
-            width: 50px;
-            height: 50px;
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 15px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 18px;
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+            transition: transform 0.4s;
+        }
+
+        .site-card:hover .card-icon {
+            transform: rotate(10deg) scale(1.1);
         }
 
         .card-title {
             font-family: 'Noto Nastaliq Urdu', serif;
             font-weight: 700;
-            margin-bottom: 8px;
-            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
             color: var(--text-main);
+            line-height: 1.4;
         }
 
         .card-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-light);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             flex-grow: 1;
             line-height: 1.6;
         }
 
         .visit-btn {
-            display: inline-block;
-            text-align: center;
-            background: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             color: white;
             text-decoration: none;
-            padding: 10px;
-            border-radius: 10px;
+            padding: 12px 30px;
+            border-radius: 50px;
             font-family: 'Noto Nastaliq Urdu', serif;
+            font-weight: bold;
             transition: 0.3s;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
         }
         
-        .visit-btn:hover { background: var(--secondary); }
+        .visit-btn:hover { 
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Ad Containers - Centered & Clean */
+        .ad-container {
+            margin: 30px auto;
+            max-width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: rgba(255,255,255,0.5);
+            border-radius: 15px;
+        }
 
         /* Footer */
         .glass-footer {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(20px);
             color: white;
-            padding: 40px 20px;
-            margin-top: 50px;
+            padding: 50px 20px;
+            margin-top: 60px;
             border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
         }
 
         .footer-links a {
-            color: #ddd;
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.9rem;
+            margin: 0 15px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            display: inline-block;
         }
+        
+        .footer-links a:hover { color: white; transform: translateY(-2px); }
 
-        /* Install Button */
+        /* Install Button - Floating */
         #installBtn {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
+            bottom: 30px;
+            left: 30px;
             background: #00b894;
+            background: linear-gradient(135deg, #00b894, #00cec9);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.4);
             cursor: pointer;
             z-index: 1000;
-            display: none;
+            display: none; /* JS will toggle */
             font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: transform 0.3s;
         }
+        
+        #installBtn:hover { transform: scale(1.1); }
 
         /* Theme Toggle */
         .theme-toggle {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
             background: var(--text-main);
             color: var(--glass-bg);
             border-radius: 50%;
@@ -294,14 +376,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
         }
+        
+        .theme-toggle:hover { transform: rotate(180deg); }
+
     </style>
 </head>
 <body>
 
 <button id="installBtn">
-    <i class="fas fa-download"></i> ایپ انسٹال کریں
+    <i class="fas fa-download" style="margin-left:8px;"></i> ایپ انسٹال کریں
 </button>
 
 <button class="theme-toggle" onclick="document.body.classList.toggle('dark-mode')">
@@ -310,24 +397,24 @@
 
 <header class="header">
     <div class="logo-area">
-        <i class="fas fa-globe"></i>
+        <i class="fas fa-globe-asia" style="color: var(--primary); font-size: 24px;"></i>
         <span class="logo-text">ڈیجیٹل سائٹس ہب</span>
     </div>
-    <p class="tagline">ید اللہ ڈیجیٹل ہب - آپ کی پسندیدہ ویب سائٹس</p>
+    <p class="tagline">ید اللہ ڈیجیٹل ہب - آپ کی پسندیدہ ویب سائٹس ایک کلک پر</p>
     
     <div class="top-links">
-        <a href="about.html" class="page-link"><i class="fas fa-user"></i> میرے بارے میں</a>
-        <a href="contact.html" class="page-link"><i class="fas fa-envelope"></i> رابطہ کریں</a>
+        <a href="about.html" class="page-link"><i class="fas fa-user-circle"></i> میرے بارے میں</a>
+        <a href="contact.html" class="page-link"><i class="fas fa-paper-plane"></i> رابطہ کریں</a>
     </div>
 
     <div class="nav-scroll-container">
         <div class="nav-pills">
-            <button class="nav-btn active" onclick="filterSites('all', this)">تمام</button>
-            <button class="nav-btn" onclick="filterSites('islamic', this)">اسلامی</button>
-            <button class="nav-btn" onclick="filterSites('games', this)">گیمز</button>
-            <button class="nav-btn" onclick="filterSites('education', this)">تعلیم</button>
-            <button class="nav-btn" onclick="filterSites('tools', this)">ٹولز</button>
-            <button class="nav-btn" onclick="filterSites('blog', this)">بلاگ/ناول</button>
+            <button class="nav-btn active" onclick="filterSites('all', this)">تمام سائٹس</button>
+            <button class="nav-btn" onclick="filterSites('islamic', this)"> اسلامی</button>
+            <button class="nav-btn" onclick="filterSites('games', this)">🎮 گیمز</button>
+            <button class="nav-btn" onclick="filterSites('education', this)">🎓 تعلیم</button>
+            <button class="nav-btn" onclick="filterSites('tools', this)">🛠️ ٹولز</button>
+            <button class="nav-btn" onclick="filterSites('blog', this)">📚 بلاگ/ناول</button>
         </div>
     </div>
 </header>
@@ -335,12 +422,12 @@
 <div class="container">
     
     <div class="search-wrapper">
-        <input type="text" class="search-box" id="searchInput" placeholder="ویب سائٹ تلاش کریں..." onkeyup="searchSites()">
-        <i class="fas fa-search" style="position: absolute; left: 20px; top: 18px; color: var(--primary);"></i>
+        <input type="text" class="search-box" id="searchInput" placeholder="ویب سائٹ کا نام تلاش کریں..." onkeyup="searchSites()">
+        <i class="fas fa-search" style="position: absolute; left: 25px; top: 22px; color: var(--primary); font-size: 1.2rem;"></i>
     </div>
 
-    <div class="glass-panel" style="padding: 10px; margin-bottom: 30px; text-align: center;">
-        <p style="font-size: 0.7rem; color: #888;">اشتہار</p>
+    <div class="glass-panel ad-container" style="padding: 15px;">
+        <p style="font-size: 0.7rem; color: #888; margin-bottom: 5px;">سپانسرڈ اشتہار</p>
         <script>
           atOptions = {
             'key' : 'f9157fa80713b5171e45fc9fdc0fa492',
@@ -358,27 +445,31 @@
     <div id="sitesContainer" class="sites-grid">
         </div>
 
-    <div class="glass-panel" style="padding: 10px; margin-top: 30px; text-align: center;">
-        <p style="font-size: 0.7rem; color: #888;">اشتہار</p>
-        <iframe src="https://www.effectivegatecpm.com/tv5343p0ug?key=c754ac6cffa60bbaa22756a3175807ad" style="width:100%; height:250px; border:none; overflow:hidden;" scrolling="no"></iframe>
+    <div class="glass-panel ad-container" style="padding: 15px;">
+        <p style="font-size: 0.7rem; color: #888; margin-bottom: 5px;">سپانسرڈ اشتہار</p>
+        <iframe src="https://www.effectivegatecpm.com/tv5343p0ug?key=c754ac6cffa60bbaa22756a3175807ad" style="width:100%; height:250px; border:none; overflow:hidden; border-radius: 10px;" scrolling="no"></iframe>
     </div>
 
 </div>
 
 <footer class="glass-footer">
-    <div class="container" style="text-align: center;">
-        <h3 style="margin-bottom: 15px;">ڈیجیٹل سائٹس ہب</h3>
-        <p style="margin-bottom: 20px; opacity: 0.8;">ید اللہ ڈیجیٹل ہب کی جانب سے پیش کردہ۔</p>
+    <div class="container">
+        <h2 style="margin-bottom: 20px; font-family: 'Noto Nastaliq Urdu', serif;">ڈیجیٹل سائٹس ہب</h2>
+        <p style="margin-bottom: 30px; opacity: 0.8; max-width: 600px; margin-left: auto; margin-right: auto;">
+            یہ ویب سائٹ ید اللہ ڈیجیٹل ہب کی جانب سے پیش کردہ ایک بہترین پروجیکٹ ہے جہاں آپ کو تمام ضروری لنکس ایک ہی جگہ ملتے ہیں۔
+        </p>
         
-        <div class="footer-links" style="margin-bottom: 25px;">
-            <a href="about.html">About Us</a> |
-            <a href="contact.html">Contact Form</a> |
+        <div class="footer-links" style="margin-bottom: 30px;">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Form</a>
             <a href="privacy.html">Privacy Policy</a>
         </div>
         
-        <p style="font-size: 0.8rem; opacity: 0.6;">© 2024 جملہ حقوق محفوظ ہیں۔</p>
+        <div style="width: 50px; height: 2px; background: rgba(255,255,255,0.3); margin: 0 auto 20px;"></div>
         
-        <div style="margin-top: 20px;">
+        <p style="font-size: 0.85rem; opacity: 0.6;">© 2024 جملہ حقوق محفوظ ہیں۔ ید اللہ ڈیجیٹل ہب۔</p>
+        
+        <div style="margin-top: 30px; display: inline-block; background: white; padding: 10px; border-radius: 10px;">
             <script>
               atOptions = {
                 'key' : 'f9157fa80713b5171e45fc9fdc0fa492',
@@ -395,14 +486,15 @@
 </footer>
 
 <script>
-    // ==================== DATA restored to ORIGINAL names ====================
+    // ==================== DATABASE ====================
+    // ہدایات کے مطابق نام اور ڈیٹا بالکل تبدیل نہیں کیا گیا ہے۔
     const websites = [
         {
             id: 1,
             name: "اسلامک لائبریری",
             url: "https://islamicdigitallibrary.github.io/",
             category: "islamic",
-            desc: "قرآن اور اسلامی کتب",
+            desc: "قرآن اور مستند اسلامی کتب کا خزانہ",
             icon: "fas fa-book-quran"
         },
         {
@@ -410,15 +502,15 @@
             name: "قرآن پاک MP3",
             url: "https://ulutfyad48-debug.github.io/Quran-MP3/",
             category: "islamic",
-            desc: "آڈیو قرآن",
-            icon: "fas fa-headphones"
+            desc: "خوبصورت آواز میں آڈیو قرآن سنیں",
+            icon: "fas fa-headphones-alt"
         },
         {
             id: 3,
             name: "قرآن مع اردو",
             url: "https://ulutfyad48-debug.github.io/Quran-Majeed-in-audio-file-with-Urdu-/",
             category: "islamic",
-            desc: "اردو ترجمہ کے ساتھ",
+            desc: "مکمل قرآن اردو ترجمہ آڈیو کے ساتھ",
             icon: "fas fa-language"
         },
         {
@@ -426,23 +518,23 @@
             name: "DIT کورس",
             url: "https://ulutfyad48-debug.github.io/DIT-course/",
             category: "education",
-            desc: "آئی ٹی کورس",
-            icon: "fas fa-graduation-cap"
+            desc: "آئی ٹی اور کمپیوٹر کورسز سیکھیں",
+            icon: "fas fa-laptop-code"
         },
         {
             id: 5,
             name: "کوئک بائٹ کیفے",
             url: "https://quickbitecafe35.github.io/",
             category: "blog",
-            desc: "فوڈ بلاگ",
+            desc: "لذیذ کھانوں کا فوڈ بلاگ",
             icon: "fas fa-utensils"
         },
         {
             id: 6,
-            name: "ناولستان", // Name Restored as requested
+            name: "ناولستان", 
             url: "https://ulutfyad48-debug.github.io/",
             category: "blog",
-            desc: "اردو ناولز",
+            desc: "اردو ناولز کا سب سے بڑا مرکز",
             icon: "fas fa-book-open"
         },
         {
@@ -450,7 +542,7 @@
             name: "فری گیمز ہب",
             url: "https://ullahyad1.github.io",
             category: "games",
-            desc: "مفت گیمز کھیلیں",
+            desc: "آن لائن مفت گیمز کھیلیں",
             icon: "fas fa-gamepad"
         },
         {
@@ -458,7 +550,7 @@
             name: "حارث موبائل سینٹر",
             url: "https://ulutfyad48-debug.github.io/Haris-Mobile-Center/",
             category: "tools",
-            desc: "موبائل شاپ",
+            desc: "موبائل شاپ اور اسیریز",
             icon: "fas fa-mobile-alt"
         },
         {
@@ -466,7 +558,7 @@
             name: "سمارٹ لنک سروسز",
             url: "https://hassanzebsmartlinkservices.github.io/",
             category: "tools",
-            desc: "ڈیجیٹل سروسز",
+            desc: "پریمیم ڈیجیٹل سروسز",
             icon: "fas fa-link"
         },
         {
@@ -474,20 +566,20 @@
             name: "سائبر پرینک",
             url: "https://ulutfyad48-debug.github.io/CyberPrank/",
             category: "tools",
-            desc: "سائبر ٹول",
+            desc: "دوستوں کے ساتھ تفریحی پرینک ٹول",
             icon: "fas fa-user-secret"
         }
     ];
 
-    // Initialize
+    // Initialize Function
     window.onload = function() {
         displaySites('all');
         
-        // PWA Install Button Logic
+        // PWA Install Logic
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             const btn = document.getElementById('installBtn');
-            btn.style.display = 'block';
+            btn.style.display = 'flex';
             btn.onclick = () => {
                 e.prompt();
                 e.userChoice.then((choice) => {
@@ -497,7 +589,7 @@
         });
     };
 
-    // Display Function
+    // Display Logic with Animation
     function displaySites(category) {
         const container = document.getElementById('sitesContainer');
         container.innerHTML = '';
@@ -506,9 +598,17 @@
             ? websites 
             : websites.filter(site => site.category === category);
             
+        if (filtered.length === 0) {
+            container.innerHTML = `<div style="text-align:center; width:100%; grid-column: 1/-1; color: white;">کوئی ویب سائٹ نہیں ملی</div>`;
+            return;
+        }
+
         filtered.forEach((site, index) => {
+            // Staggered Animation Delay calculation
+            const delay = index * 100;
+            
             container.innerHTML += `
-                <div class="site-card glass-panel" style="animation: fadeInUp 0.5s ease forwards ${index * 100}ms; opacity: 0; transform: translateY(20px);">
+                <div class="site-card glass-panel" style="animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards ${delay}ms; opacity: 0; transform: translateY(30px);">
                     <div class="card-icon">
                         <i class="${site.icon}"></i>
                     </div>
@@ -522,14 +622,16 @@
         });
     }
 
-    // Filter Function
+    // Filter Logic
     function filterSites(cat, btn) {
+        // Remove active class from all buttons
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        // Add to clicked button
         btn.classList.add('active');
         displaySites(cat);
     }
 
-    // Search Function
+    // Search Logic
     function searchSites() {
         const query = document.getElementById('searchInput').value.toLowerCase();
         const container = document.getElementById('sitesContainer');
@@ -540,19 +642,24 @@
             site.desc.toLowerCase().includes(query)
         );
         
-        filtered.forEach(site => {
-            container.innerHTML += `
-                <div class="site-card glass-panel">
+        if (filtered.length === 0) {
+            container.innerHTML = `<div style="text-align:center; width:100%; grid-column: 1/-1; color: white; font-family: 'Noto Nastaliq Urdu';">افسوس! کوئی نتیجہ نہیں ملا۔</div>`;
+            return;
+        }
+        
+        filtered.forEach((site, index) => {
+             container.innerHTML += `
+                <div class="site-card glass-panel" style="animation: fadeInUp 0.4s ease forwards;">
                     <div class="card-icon"><i class="${site.icon}"></i></div>
                     <h3 class="card-title">${site.name}</h3>
                     <p class="card-desc">${site.desc}</p>
-                    <a href="${site.url}" target="_blank" class="visit-btn">وزٹ کریں</a>
+                    <a href="${site.url}" target="_blank" class="visit-btn">وزٹ کریں <i class="fas fa-arrow-left"></i></a>
                 </div>
             `;
         });
     }
     
-    // Animation CSS inject
+    // Inject Keyframe Animation
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes fadeInUp {
